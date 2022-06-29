@@ -13,56 +13,33 @@ class XylophoneApp extends StatelessWidget {
     audioPlayer.open(Audio('assets/note$soundNumber.wav'));
   }
 
+  Expanded buildKey(Color color, int soundNumber) {
+    return Expanded(
+      child: MaterialButton(
+        color: color,
+        onPressed: () {
+          playSound(soundNumber);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    // V I B G Y O R
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              MaterialButton(
-                color: Colors.red[400],
-                onPressed: () {
-                  playSound(1);
-                },
-              ),
-              MaterialButton(
-                color: Colors.orange[400],
-                onPressed: () {
-                  playSound(2);
-                },
-              ),
-              MaterialButton(
-                color: Colors.yellow[400],
-                onPressed: () {
-                  playSound(3);
-                },
-              ),
-              MaterialButton(
-                color: Colors.green[400],
-                onPressed: () {
-                  playSound(4);
-                },
-              ),
-              MaterialButton(
-                color: Colors.blue[400],
-                onPressed: () {
-                  playSound(5);
-                },
-              ),
-              MaterialButton(
-                color: Colors.lightBlue[400],
-                onPressed: () {
-                  playSound(6);
-                },
-              ),
-              MaterialButton(
-                color: Colors.purple[400],
-                onPressed: () {
-                  playSound(7);
-                },
-              ),
+              buildKey(Colors.red, 1),
+              buildKey(Colors.orange, 2),
+              buildKey(Colors.yellow, 3),
+              buildKey(Colors.green, 4),
+              buildKey(Colors.teal, 5),
+              buildKey(Colors.blue, 6),
+              buildKey(Colors.purple, 7),
             ],
           ),
         ),
